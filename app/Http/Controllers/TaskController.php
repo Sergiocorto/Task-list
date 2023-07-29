@@ -14,9 +14,9 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
 
-    public function index()
+    public function index($paginate)
     {
-        return $this->taskService->getAllTasks();
+        return $this->taskService->getAllTasks($paginate);
     }
 
     public function store(Request $request)

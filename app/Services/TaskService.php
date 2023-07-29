@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class TaskService
 {
-    public function getAllTasks()
+    public function getAllTasks($paginate)
     {
         try {
-            return DB::transaction(function () {
-                $tasks = Task::all();
+            return DB::transaction(function () use ($paginate) {
+                $tasks = Task::paginate($paginate);
                 return TaskResource::collection($tasks);
             });
         } catch (QueryException $e) {
