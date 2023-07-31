@@ -1,0 +1,41 @@
+.alert-add-task{
+  display: none;
+}
+.alert-edit-task{
+  display: none;
+}
+.btn-card{
+  float: right;
+}
+
+.card{
+  margin: 10px;
+}
+
+.card-text{
+  font-size: small;
+}
+
+.book-img{
+  height: 150px;
+  width: 100px;
+}
+.name{
+  display: inline-block;
+}
+
+.btn{
+  margin: 0px 5px;
+}
+
+.body{
+  margin: 5px 0px;
+}
+
+.taskCard{
+  display: inline-block;
+}
+
+.d-flex h4{
+    margin-right: 1rem;
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\TaskService;
+use http\Client\Response;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -14,9 +15,9 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
 
-    public function index($paginate)
+    public function index($paginate, Request $request)
     {
-        return $this->taskService->getAllTasks($paginate);
+        return $this->taskService->getAllTasks($paginate, $request);
     }
 
     public function store(Request $request)

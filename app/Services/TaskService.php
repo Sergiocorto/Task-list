@@ -12,9 +12,17 @@ use Illuminate\Support\Facades\Validator;
 
 class TaskService
 {
-    public function getAllTasks($paginate)
+    public function getAllTasks($paginate, $request)
     {
         try {
+            if ($request->has('filter')) {
+                $statusId = $request->input('filter');
+                return DB::transaction(function () use ($paginate, $statusId) {
+                    $tasks = Task::where('status_id', $statusId)
+                        ->paginate($paginate);
+                    return TaskResource::collection($tasks);
+                });
+            }
             return DB::transaction(function () use ($paginate) {
                 $tasks = Task::paginate($paginate);
                 return TaskResource::collection($tasks);
